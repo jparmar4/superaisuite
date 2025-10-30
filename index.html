@@ -3,137 +3,185 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SuperAISuite — AI Tools for Everyone</title>
-  <meta name="description" content="SuperAISuite: a free Android app that bundles AI utilities — chat, image tools, quiz generator and more." />
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <title>SuperAISuite — All-in-one AI App</title>
+  <meta name="description" content="SuperAISuite: All-in-one AI suite powered by GPT-5 for productivity, creativity, and daily assistance." />
+  <link rel="icon" type="image/png" href="SuperAI.png" />
   <style>
-    :root{--accent:#4f46e5;--bg:#0f172a;--card:#0b1220;--muted:#94a3b8}
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:#0b1220;margin:0;background:linear-gradient(180deg,#f8fafc,#fff)}
-    .container{max-width:1100px;margin:0 auto;padding:28px}
-    header{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
-    .logo{display:flex;gap:12px;align-items:center}
-    .logo .mark{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#7c3aed,#06b6d4);color:white;font-weight:700}
-    nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-weight:600}
-    .hero{display:flex;gap:32px;align-items:center;padding:28px 0}
-    .hero .col{flex:1}
-    h1{font-size:34px;margin:0 0 10px;line-height:1.02}
-    p.lead{color:#374151;margin:0 0 18px}
-    .cta{display:flex;gap:12px;align-items:center}
-    .btn{background:var(--accent);color:white;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(79,70,229,.12)}
-    .btn.ghost{background:transparent;color:var(--accent);border:2px solid rgba(79,70,229,.12)}
-    .card{background:white;border-radius:14px;padding:18px;box-shadow:0 6px 18px rgba(2,6,23,.06)}
-    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:20px}
-    .feature{padding:14px;border-radius:10px}
-    .screenshot{background:linear-gradient(180deg,#eef2ff,#fff);height:420px;border-radius:12px;display:grid;place-items:center;color:#4f46e5;font-weight:700}
-    footer{margin-top:36px;padding:18px 0;color:#64748b;text-align:center}
-    @media(max-width:800px){.hero{flex-direction:column}.screenshot{height:300px}}
+    :root {
+      --accent: #7c3aed;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --bg: #0f172a;
+      --text: #1e293b;
+      --muted: #64748b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(180deg, #f8fafc, #fff);
+      color: var(--text);
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      height: 60px;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      transition: color .3s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 10%;
+      flex-wrap: wrap;
+      background: white;
+    }
+    .hero img {
+      width: 320px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+    .hero-text {
+      max-width: 550px;
+    }
+    h1 {
+      font-size: 40px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .lead {
+      color: var(--muted);
+      font-size: 18px;
+      margin: 16px 0;
+    }
+    .btn {
+      background: var(--gradient);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: opacity .3s;
+      display: inline-block;
+    }
+    .btn:hover { opacity: .85; }
+
+    section {
+      padding: 60px 10%;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .feature {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      background: var(--bg);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    a { color: var(--accent); }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">
-        <div class="mark">SA</div>
-        <div>
-          <div style="font-weight:800">SuperAISuite</div>
-          <div style="font-size:12px;color:#6b7280">AI tools for learning & creation</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#features">Features</a>
-        <a href="#screenshots">Screenshots</a>
-        <a href="#download">Download</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+  <header>
+    <img src="SuperAI.png" alt="SuperAISuite Logo">
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#contact">Contact</a>
+      <a href="#privacy">Privacy Policy</a>
+    </nav>
+  </header>
 
-    <main>
-      <section class="hero">
-        <div class="col">
-          <h1>SuperAISuite — your pocket AI toolkit</h1>
-          <p class="lead">A lightweight Android app that bundles useful AI features — chat assistants, quiz & flashcard generators, image tools, quick grammar help and more. Fast, free, no-login required.</p>
-          <div class="cta">
-            <a class="btn" id="downloadBtn" href="https://play.google.com/store/apps/details?id=com.superaisuite" target="_blank" rel="noopener">Get it on Google Play</a>
-            <a class="btn ghost" href="https://github.com/jparmar4/superaisuite" target="_blank" rel="noopener">View on GitHub</a>
-          </div>
-          <div style="margin-top:14px;color:#6b7280;font-size:13px">Free • No login • Small download size</div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="screenshot">App preview / Add your screenshots</div>
-            <div style="display:flex;gap:10px;margin-top:12px">
-              <div style="flex:1;font-size:13px;color:#4b5563">Version: — (auto from Play Store)</div>
-              <div style="font-size:13px;color:#4b5563">Updated: —</div>
-            </div>
-          </div>
-        </div>
-      </section>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>SuperAISuite — Powered by GPT‑5</h1>
+      <p class="lead">✨ All‑in‑one AI suite for productivity, creativity, and daily assistance.</p>
+      <p><strong>Best UI features & improvements!</strong></p>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.superaisuite" target="_blank">Download on Google Play</a>
+    </div>
+    <img src="SuperAI.png" alt="App Screenshot" />
+  </section>
 
-      <section id="features">
-        <h2 style="margin-top:28px">Features</h2>
-        <div class="features">
-          <div class="feature card">
-            <strong>AI Chat & Tutor</strong>
-            <div style="color:#6b7280;margin-top:6px">Ask questions, get step-by-step answers and explanations.</div>
-          </div>
-          <div class="feature card">
-            <strong>Quiz & Flashcard Generator</strong>
-            <div style="color:#6b7280;margin-top:6px">Daily quizzes and auto-generated flashcards for study practice.</div>
-          </div>
-          <div class="feature card">
-            <strong>Image Tools</strong>
-            <div style="color:#6b7280;margin-top:6px">AI image suggestions, thumbnails and simple edits.</div>
-          </div>
-          <div class="feature card">
-            <strong>Grammar & Writing Helper</strong>
-            <div style="color:#6b7280;margin-top:6px">Quick corrections and short explanations.</div>
-          </div>
-        </div>
-      </section>
+  <section id="features">
+    <h2>🗂️ Multiple AI Tools</h2>
+    <div class="features">
+      <div class="feature">✨ Document Summarization</div>
+      <div class="feature">✨ Trading Analysis</div>
+      <div class="feature">✨ Ask Anything</div>
+      <div class="feature">✨ Email Response Generator</div>
+      <div class="feature">✨ Mental Health</div>
+      <div class="feature">✨ Fitness Goals</div>
+      <div class="feature">✨ Life Decisions</div>
+      <div class="feature">✨ Social Media Caption Generator</div>
+      <div class="feature">✨ Awkward Moments</div>
+      <div class="feature">✨ Study Help</div>
+      <div class="feature">✨ Math Solver</div>
+      <div class="feature">✨ Career Advice</div>
+      <div class="feature">✨ English Speaking</div>
+      <div class="feature">✨ Gift Ideas</div>
+      <div class="feature">✨ Story Generator</div>
+      <div class="feature">✨ Cooking Help</div>
+    </div>
+  </section>
 
-      <section id="screenshots" style="margin-top:26px">
-        <h2>Screenshots</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px">
-          <div class="card" style="height:200px;display:flex;align-items:center;justify-content:center">Screenshot 1</div>
-          <div class="card" style="height:200px;display:flex;align-items:center;justify-content:center">Screenshot 2</div>
-          <div class="card" style="height:200px;display:flex;align-items:center;justify-content:center">Screenshot 3</div>
-        </div>
-      </section>
+  <section id="contact">
+    <h2>📬 Contact Us</h2>
+    <p>Have questions, suggestions, or feedback?</p>
+    <p>Email us at: <a href="mailto:jitu4ulove@gmail.com">jitu4ulove@gmail.com</a></p>
+  </section>
 
-      <section id="download" style="margin-top:28px">
-        <h2>Download</h2>
-        <div class="card" style="display:flex;gap:20px;align-items:center;justify-content:space-between">
-          <div>
-            <div style="font-weight:800">SuperAISuite on Google Play</div>
-            <div style="color:#6b7280;margin-top:6px">Tap the button to open the Play Store page and install the app.</div>
-          </div>
-          <div>
-            <a class="btn" href="https://play.google.com/store/apps/details?id=com.superaisuite" target="_blank" rel="noopener">Open on Play Store</a>
-          </div>
-        </div>
-      </section>
+  <section id="privacy">
+    <h2>Privacy Policy</h2>
+    <div style="text-align:left;max-width:900px;margin:0 auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.05);height:500px;overflow-y:auto">
+      <p>This privacy policy is applicable to the Super AI Suite app (hereinafter referred to as "Application") for mobile devices, which was developed by (hereinafter referred to as "Service Provider") as a Freemium service. This service is provided "AS IS".</p>
+      <p><strong>What information does the Application obtain and how is it used?</strong></p>
+      <p>User Provided Information — The Application acquires the information you supply when you download and register the Application...</p>
+      <p>Automatically Collected Information — The Application may collect device type, device ID, IP address, OS type, and usage behavior.</p>
+      <p>The Application does not gather precise location data. Aggregated location data may be used for personalization and analytics.</p>
+      <p>Third-Party Services used by the app: <br>
+      <a href="https://www.google.com/policies/privacy/">Google Play Services</a><br>
+      <a href="https://support.google.com/admob/answer/6128543?hl=en">AdMob</a><br>
+      <a href="https://firebase.google.com/support/privacy">Google Analytics for Firebase</a></p>
+      <p>To delete your data, contact us at <a href="mailto:jitu4ulove@gmail.com">jitu4ulove@gmail.com</a>.</p>
+      <p>Effective Date: 2025‑06‑14</p>
+    </div>
+  </section>
 
-      <section id="contact" style="margin-top:28px">
-        <h2>Contact & Source</h2>
-        <div class="card" style="display:flex;flex-direction:column;gap:10px">
-          <div>If you want help hosting or editing this page, open an issue or PR on the GitHub repo:</div>
-          <a href="https://github.com/jparmar4/superaisuite" target="_blank" rel="noopener">https://github.com/jparmar4/superaisuite</a>
-          <div id="emailNote" style="color:#6b7280;font-size:13px">Email: (add your email here)</div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      Made with ❤️ • SuperAISuite — Simple landing page
-    </footer>
-  </div>
-
-  <script>
-    // Small JS: smooth scroll for nav
-    document.querySelectorAll('nav a').forEach(a=>{
-      a.addEventListener('click',e=>{e.preventDefault();const id=a.getAttribute('href');if(id.startsWith('#'))document.querySelector(id).scrollIntoView({behavior:'smooth'});});
-    });
-  </script>
+  <footer>
+    © 2025 SuperAISuite — Powered by GPT‑5 | <a href="#privacy" style="color:#fff;text-decoration:underline">Privacy Policy</a>
+  </footer>
 </body>
 </html>
