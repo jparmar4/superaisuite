@@ -11,6 +11,7 @@ const features = [
         icon: FileText,
         color: "text-blue-500",
         bg: "bg-blue-500/10",
+        borderColor: "hover:border-blue-500/50",
     },
     {
         title: "Market Analysis",
@@ -18,6 +19,7 @@ const features = [
         icon: TrendingUp,
         color: "text-green-500",
         bg: "bg-green-500/10",
+        borderColor: "hover:border-green-500/50",
     },
     {
         title: "Conversational AI",
@@ -25,6 +27,7 @@ const features = [
         icon: MessageSquare,
         color: "text-purple-500",
         bg: "bg-purple-500/10",
+        borderColor: "hover:border-purple-500/50",
     },
     {
         title: "Smart Communications",
@@ -32,6 +35,7 @@ const features = [
         icon: Mail,
         color: "text-yellow-500",
         bg: "bg-yellow-500/10",
+        borderColor: "hover:border-yellow-500/50",
     },
     {
         title: "Wellness Support",
@@ -39,6 +43,7 @@ const features = [
         icon: Heart,
         color: "text-pink-500",
         bg: "bg-pink-500/10",
+        borderColor: "hover:border-pink-500/50",
     },
     {
         title: "Fitness Coaching",
@@ -46,45 +51,75 @@ const features = [
         icon: Activity,
         color: "text-red-500",
         bg: "bg-red-500/10",
+        borderColor: "hover:border-red-500/50",
     },
 ];
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5 },
+    },
+};
 
 export function Features() {
     return (
         <section id="features" className="container py-24 px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                    Everything You Need to Excel
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col items-center justify-center space-y-4 text-center mb-16"
+            >
+                <div className="inline-flex items-center rounded-full border px-4 py-1.5 text-sm font-medium bg-secondary text-secondary-foreground">
+                    ✨ Powerful Features
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl max-w-2xl">
+                    Everything You Need to <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">Excel</span>
                 </h2>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-                    From productivity to personal well-being, SuperAISuite covers every aspect of your life.
+                    From productivity to personal well-being, SuperAISuite covers every aspect of your life with cutting-edge AI.
                 </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            </motion.div>
+
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
                 {features.map((feature, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                    >
-                        <Card className="h-full border-2 hover:border-primary/50 transition-colors duration-300">
+                    <motion.div key={index} variants={itemVariants}>
+                        <Card className={`h-full border-2 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] ${feature.borderColor} group cursor-pointer`}>
                             <CardHeader>
-                                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${feature.bg}`}>
-                                    <feature.icon className={`w-6 h-6 ${feature.color}`} />
+                                <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${feature.bg} group-hover:scale-110 transition-transform duration-300`}>
+                                    <feature.icon className={`w-7 h-7 ${feature.color}`} />
                                 </div>
-                                <CardTitle className="text-xl">{feature.title}</CardTitle>
+                                <CardTitle className="text-xl group-hover:text-primary transition-colors">{feature.title}</CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <CardDescription className="text-base">
+                                <CardDescription className="text-base leading-relaxed">
                                     {feature.description}
                                 </CardDescription>
                             </CardContent>
                         </Card>
                     </motion.div>
                 ))}
-            </div>
+            </motion.div>
         </section>
     );
 }

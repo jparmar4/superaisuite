@@ -2,14 +2,21 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SuperAISuite - Next-Generation AI Platform",
+  title: {
+    default: "SuperAISuite - Next-Generation AI Platform",
+    template: "%s | SuperAISuite",
+  },
   description: "Experience the ultimate AI ecosystem designed to empower your productivity, health, and financial growth. Features Document Intelligence, Market Analysis, and more.",
-  keywords: ["AI", "Artificial Intelligence", "Productivity", "Health", "Finance", "Wellness", "SuperAISuite", "Android App"],
+  keywords: ["AI", "Artificial Intelligence", "Productivity", "Health", "Finance", "Wellness", "SuperAISuite", "Android App", "AI Assistant", "Document Analysis", "Market Trading"],
   authors: [{ name: "SuperAISuite Team" }],
+  creator: "SuperAISuite",
+  publisher: "SuperAISuite",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -19,7 +26,7 @@ export const metadata: Metadata = {
     description: "The ultimate AI ecosystem for productivity, health, and finance.",
     images: [
       {
-        url: "/og-image.jpg", // We should create this later
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "SuperAISuite Preview",
@@ -30,6 +37,17 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SuperAISuite - Next-Generation AI Platform",
     description: "The ultimate AI ecosystem for productivity, health, and finance.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -43,11 +61,15 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className="flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
