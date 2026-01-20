@@ -35,17 +35,17 @@ export default function AboutPage() {
             {/* Mission & Vision */}
             <section className="container px-4 md:px-6 py-12">
                 <div className="grid md:grid-cols-2 gap-8">
-                    <Card className="border-2 hover:border-primary/50 transition-colors">
+                    <Card className="border-primary/10 bg-gradient-to-br from-white via-white to-primary/5 hover:border-primary/30 transition-all duration-300 shadow-sm hover:shadow-md">
                         <CardContent className="p-8">
                             <Target className="w-12 h-12 text-primary mb-6" />
-                            <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">Our Mission</h2>
                             <p className="text-muted-foreground text-lg leading-relaxed">
                                 To empower individuals with AI-powered tools that enhance productivity, support mental and physical wellness,
                                 and provide intelligent insights for better decision-making in all aspects of life.
                             </p>
                         </CardContent>
                     </Card>
-                    <Card className="border-2 hover:border-primary/50 transition-colors">
+                    <Card className="border-primary/10 bg-gradient-to-br from-white via-white to-purple-500/5 hover:border-purple-500/30 transition-all duration-300 shadow-sm hover:shadow-md">
                         <CardContent className="p-8">
                             <Sparkles className="w-12 h-12 text-purple-500 mb-6" />
                             <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
@@ -68,10 +68,10 @@ export default function AboutPage() {
                         { icon: Target, title: "Accessibility", desc: "Powerful AI should be available to everyone." },
                         { icon: Sparkles, title: "Quality", desc: "We deliver only the highest quality experiences." },
                     ].map((value, index) => (
-                        <Card key={index} className="text-center">
+                        <Card key={index} className="text-center border-primary/10 hover:border-primary/30 transition-all duration-300 hover:bg-primary/5">
                             <CardContent className="pt-8 pb-6">
                                 <value.icon className="w-10 h-10 mx-auto text-primary mb-4" />
-                                <h3 className="font-semibold text-lg mb-2">{value.title}</h3>
+                                <h3 className="font-semibold text-lg mb-2 text-foreground">{value.title}</h3>
                                 <p className="text-muted-foreground text-sm">{value.desc}</p>
                             </CardContent>
                         </Card>

@@ -8,9 +8,11 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
     return (
         <div className="pt-24 pb-16">
-            <article className="container px-4 md:px-6 max-w-4xl mx-auto prose prose-gray dark:prose-invert">
-                <h1>Privacy Policy</h1>
-                <p className="lead">Last updated: January 2024</p>
+            <article className="container px-4 md:px-6 max-w-4xl mx-auto prose prose-gray dark:prose-invert relative z-10">
+                <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600 inline-block pb-1">
+                    Privacy Policy
+                </h1>
+                <p className="lead">Last updated: January 2026</p>
 
                 <p>
                     SuperAISuite ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains

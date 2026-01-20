@@ -7,54 +7,54 @@ import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
     title: "Blog",
-    description: "Stay updated with the latest trends in AI, productivity tips, market analysis strategies, and wellness guides from the SuperAISuite team.",
+    description: "Stay updated with the latest AI productivity tools, document summarizers, trading apps, mental health solutions, and study helpers from the SuperAISuite team.",
 };
 
-// Blog posts data - in production this would come from a CMS or MDX files
+// Blog posts data - optimized for high-CPC keywords and app promotion
 export const blogPosts = [
     {
-        slug: "what-is-superaisuite-complete-guide",
-        title: "What is SuperAISuite? Complete Guide 2024",
-        description: "Discover everything you need to know about SuperAISuite - the all-in-one AI platform for productivity, wellness, and financial insights.",
-        date: "2024-01-20",
-        category: "Product",
-        readTime: "8 min read",
+        slug: "best-ai-productivity-apps-2026",
+        title: "Best AI Apps for Productivity in 2026: Top 15 Tools",
+        description: "Discover the top AI productivity apps for 2026, including document analysis, task automation, and smart assistants. SuperAISuite ranks #1 with 18+ AI-powered features.",
+        date: "2026-01-18",
+        category: "Productivity",
+        readTime: "12 min read",
         featured: true,
     },
     {
-        slug: "how-ai-revolutionizing-personal-productivity",
-        title: "How AI is Revolutionizing Personal Productivity in 2024",
-        description: "Learn how artificial intelligence is transforming the way we work, organize, and accomplish our daily goals more efficiently than ever.",
-        date: "2024-01-18",
+        slug: "ai-document-summarizer-tools-2026",
+        title: "AI Document Summarizer: 10 Best Tools to Save Time in 2026",
+        description: "Compare the best AI document summarizer tools for PDF, Word, and text files. Learn how SuperAISuite's document intelligence can summarize any file in seconds.",
+        date: "2026-01-15",
         category: "Productivity",
         readTime: "10 min read",
         featured: true,
     },
     {
-        slug: "top-10-ai-apps-android-2024",
-        title: "Top 10 AI Apps for Android in 2024",
-        description: "A comprehensive comparison of the best AI-powered apps available on Android, featuring productivity tools, health apps, and more.",
-        date: "2024-01-15",
-        category: "Reviews",
-        readTime: "12 min read",
+        slug: "best-ai-trading-apps-2026",
+        title: "Best AI Trading Apps 2026: Smart Investing for Beginners",
+        description: "Find the best AI trading apps with market analysis and stock predictions. SuperAISuite offers real-time insights and beginner-friendly investment guidance.",
+        date: "2026-01-12",
+        category: "Finance",
+        readTime: "11 min read",
         featured: false,
     },
     {
-        slug: "mental-health-apps-ai-support",
-        title: "Mental Health Apps: How AI Provides Compassionate Support",
-        description: "Explore how AI technology is making mental health support more accessible and how apps like SuperAISuite are leading the way.",
-        date: "2024-01-12",
+        slug: "best-mental-health-apps-ai-2026",
+        title: "Best Mental Health Apps with AI Support 2026 (Free & Paid)",
+        description: "Explore top mental health apps using AI for therapy, meditation, and wellness tracking. SuperAISuite combines mental health support with fitness coaching.",
+        date: "2026-01-10",
         category: "Wellness",
         readTime: "9 min read",
         featured: false,
     },
     {
-        slug: "ai-trading-tools-beginners-guide",
-        title: "AI Trading Tools: A Beginner's Guide to Smart Investing",
-        description: "Learn how AI-powered market analysis tools can help you make better investment decisions, even if you're new to trading.",
-        date: "2024-01-10",
-        category: "Finance",
-        readTime: "11 min read",
+        slug: "free-ai-tutor-apps-students-2026",
+        title: "Free AI Tutor Apps 2026: Best AI Study Help for Students",
+        description: "Discover the best free AI tutor apps with homework help, math solvers, and study assistance. SuperAISuite offers AI tutoring plus career advice for students.",
+        date: "2026-01-08",
+        category: "Education",
+        readTime: "10 min read",
         featured: false,
     },
 ];
@@ -91,34 +91,27 @@ export default function BlogIndex() {
                         <div className="grid md:grid-cols-2 gap-6">
                             {featuredPosts.map((post) => (
                                 <Link key={post.slug} href={`/blog/${post.slug}`}>
-                                    <Card className="h-full hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/30 group overflow-hidden">
-                                        {/* Gradient Banner */}
-                                        <div className="h-32 bg-gradient-to-br from-primary/20 via-purple-500/20 to-blue-500/20" />
+                                    <Card className="h-full hover:border-primary/50 transition-all duration-300 hover:shadow-lg">
                                         <CardHeader>
-                                            <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
-                                                <span className="px-2 py-1 rounded-full bg-primary/10 text-primary font-medium text-xs">
-                                                    {post.category}
-                                                </span>
-                                                <span className="flex items-center gap-1">
-                                                    <Calendar className="h-3 w-3" />
-                                                    {format(new Date(post.date), "MMM d, yyyy")}
-                                                </span>
-                                                <span className="flex items-center gap-1">
-                                                    <Clock className="h-3 w-3" />
-                                                    {post.readTime}
-                                                </span>
+                                            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                                                <Calendar className="h-4 w-4" />
+                                                <span>{format(new Date(post.date), "MMM dd, yyyy")}</span>
+                                                <span>•</span>
+                                                <Clock className="h-4 w-4" />
+                                                <span>{post.readTime}</span>
                                             </div>
-                                            <CardTitle className="text-xl group-hover:text-primary transition-colors line-clamp-2">
+                                            <CardTitle className="text-xl mb-2 group-hover:text-primary transition-colors">
                                                 {post.title}
                                             </CardTitle>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <CardDescription className="text-base line-clamp-2 mb-4">
+                                            <CardDescription className="text-base">
                                                 {post.description}
                                             </CardDescription>
-                                            <span className="text-primary font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                                                Read Article <ArrowRight className="h-4 w-4" />
-                                            </span>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <div className="flex items-center text-primary font-medium">
+                                                Read article
+                                                <ArrowRight className="ml-2 h-4 w-4" />
+                                            </div>
                                         </CardContent>
                                     </Card>
                                 </Link>
@@ -128,36 +121,37 @@ export default function BlogIndex() {
                 )}
 
                 {/* Recent Posts */}
-                <section>
-                    <h2 className="text-2xl font-bold mb-6">Recent Articles</h2>
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {recentPosts.map((post) => (
-                            <Link key={post.slug} href={`/blog/${post.slug}`}>
-                                <Card className="h-full hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20 group">
-                                    <CardHeader>
-                                        <div className="flex items-center gap-3 text-sm text-muted-foreground mb-2">
-                                            <span className="px-2 py-1 rounded-full bg-secondary text-secondary-foreground font-medium text-xs">
-                                                {post.category}
-                                            </span>
-                                            <span className="flex items-center gap-1">
-                                                <Clock className="h-3 w-3" />
-                                                {post.readTime}
-                                            </span>
-                                        </div>
-                                        <CardTitle className="text-lg group-hover:text-primary transition-colors line-clamp-2">
-                                            {post.title}
-                                        </CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <CardDescription className="line-clamp-3">
-                                            {post.description}
-                                        </CardDescription>
-                                    </CardContent>
-                                </Card>
-                            </Link>
-                        ))}
-                    </div>
-                </section>
+                {recentPosts.length > 0 && (
+                    <section>
+                        <h2 className="text-2xl font-bold mb-6">Recent Articles</h2>
+                        <div className="grid md:grid-cols-3 gap-6">
+                            {recentPosts.map((post) => (
+                                <Link key={post.slug} href={`/blog/${post.slug}`}>
+                                    <Card className="h-full hover:border-primary/50 transition-all duration-300 hover:shadow-lg">
+                                        <CardHeader>
+                                            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                                                <Calendar className="h-4 w-4" />
+                                                <span>{format(new Date(post.date), "MMM dd, yyyy")}</span>
+                                            </div>
+                                            <CardTitle className="text-lg mb-2">
+                                                {post.title}
+                                            </CardTitle>
+                                            <CardDescription>
+                                                {post.description}
+                                            </CardDescription>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <div className="flex items-center text-primary font-medium text-sm">
+                                                Read more
+                                                <ArrowRight className="ml-2 h-4 w-4" />
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </Link>
+                            ))}
+                        </div>
+                    </section>
+                )}
             </div>
         </div>
     );

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Sparkles, Github, Twitter, Linkedin } from "lucide-react";
+import Image from "next/image";
+import { Github, Twitter, Linkedin } from "lucide-react";
 
 const footerLinks = {
     product: [
@@ -27,10 +28,14 @@ export function Footer() {
                     {/* Brand Column */}
                     <div className="md:col-span-1">
                         <Link href="/" className="flex items-center space-x-2 mb-4">
-                            <Sparkles className="h-6 w-6 text-primary" />
-                            <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
-                                SuperAISuite
-                            </span>
+                            <Image
+                                src="/logo.png"
+                                alt="SuperAISuite"
+                                width={150}
+                                height={40}
+                                className="h-10 w-auto"
+                                unoptimized
+                            />
                         </Link>
                         <p className="text-sm text-muted-foreground mb-4">
                             The ultimate AI ecosystem for productivity, health, and financial growth.

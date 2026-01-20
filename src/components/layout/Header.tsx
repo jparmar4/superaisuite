@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Download, Sparkles } from "lucide-react";
+import { Menu, Download } from "lucide-react";
 import { motion } from "framer-motion";
 
 const navLinks = [
@@ -31,18 +32,23 @@ export function Header() {
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                    ? "bg-background/80 backdrop-blur-lg border-b shadow-sm"
-                    : "bg-transparent"
+                ? "bg-background/80 backdrop-blur-lg border-b shadow-sm"
+                : "bg-transparent"
                 }`}
         >
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex h-16 items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="flex items-center space-x-2">
-                        <Sparkles className="h-6 w-6 text-primary" />
-                        <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
-                            SuperAISuite
-                        </span>
+                        <Image
+                            src="/logo.png"
+                            alt="SuperAISuite"
+                            width={150}
+                            height={40}
+                            className="h-10 w-auto"
+                            priority
+                            unoptimized
+                        />
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -78,8 +84,14 @@ export function Header() {
                         <SheetContent side="right" className="w-[300px]">
                             <div className="flex flex-col space-y-6 mt-8">
                                 <Link href="/" className="flex items-center space-x-2 mb-4">
-                                    <Sparkles className="h-6 w-6 text-primary" />
-                                    <span className="font-bold text-xl">SuperAISuite</span>
+                                    <Image
+                                        src="/logo.png"
+                                        alt="SuperAISuite"
+                                        width={150}
+                                        height={40}
+                                        className="h-10 w-auto"
+                                        unoptimized
+                                    />
                                 </Link>
                                 {navLinks.map((link) => (
                                     <Link
